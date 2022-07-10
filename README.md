@@ -4,7 +4,7 @@
 
 ![screenshot]()
 
-[View Live Example](https://arijeetdev.herokuapp.com//)
+[View Live Example](https://arijeetdev.vercel.app/)
 
 ## features
 
