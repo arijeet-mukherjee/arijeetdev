@@ -41,7 +41,7 @@ export const info = {
         },
         {
             emoji: "💼",
-            text: "R&D Engineer at Dassault Systemes"
+            text: "Software Development Engineer at Servicenow"
         },
         {
             emoji: "📧",
@@ -57,7 +57,7 @@ export const info = {
             icon: 'fa fa-instagram'
         },
         {
-            link: "https://github.com/emmyari",
+            link: "https://github.com/arijeet-mukherjee",
             icon: "fa fa-github"
         },
         {
