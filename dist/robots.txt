@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arijeetdev.vercel.app/sitemap.xml
