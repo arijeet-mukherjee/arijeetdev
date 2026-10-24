@@ -52,6 +52,32 @@ function Rag() {
   )
 }
 
+function Mcp() {
+  const servers = [['tools', 34], ['resources', 80], ['prompts', 126]]
+  return (
+    <svg viewBox="0 0 240 160" className="illo illo--mcp">
+      <Defs id="g-mcp" />
+      <rect x="10" y="62" width="50" height="36" rx="10" className="illo__box" />
+      <text x="35" y="84" textAnchor="middle" className="illo__label">client</text>
+      <path d="M60 80 H96" className="illo__flow" stroke="url(#g-mcp)" />
+      {servers.map(([n, y], i) => (
+        <g key={n}>
+          <path d={`M144 80 C 160 80 160 ${y} 176 ${y}`} className="illo__flow" style={{ '--i': i }} stroke="url(#g-mcp)" />
+          <circle r="3" fill="url(#g-mcp)"><animateMotion dur="2s" begin={`${i * 0.5}s`} repeatCount="indefinite" path={`M144 80 C 160 80 160 ${y} 176 ${y}`} keyPoints={i % 2 ? '1;0' : '0;1'} keyTimes="0;1" calcMode="linear" /></circle>
+          <g className="illo__sat" style={{ '--i': i }}>
+            <rect x="176" y={y - 13} width="56" height="26" rx="8" className="illo__box" />
+            <text x="204" y={y + 3.5} textAnchor="middle" className="illo__label">{n}</text>
+          </g>
+        </g>
+      ))}
+      <circle r="3" fill="url(#g-mcp)"><animateMotion dur="1.4s" repeatCount="indefinite" path="M60 80 H96" /></circle>
+      <rect x="96" y="56" width="48" height="48" rx="14" fill="url(#g-mcp)" className="illo__core" />
+      <rect x="90" y="50" width="60" height="60" rx="18" className="illo__halo illo__halo--mcp" stroke="url(#g-mcp)" />
+      <text x="120" y="84.5" textAnchor="middle" className="illo__core-label">MCP</text>
+    </svg>
+  )
+}
+
 function FullStack() {
   const layers = ['UI · React', 'API · Node.js', 'Services · Java']
   return (
@@ -83,7 +109,7 @@ function Platform() {
   )
 }
 
-const map = { agents: Agents, rag: Rag, fullstack: FullStack, platform: Platform }
+const map = { agents: Agents, rag: Rag, mcp: Mcp, fullstack: FullStack, platform: Platform }
 
 export default function Illustration({ id }) {
   const C = map[id]
