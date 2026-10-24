@@ -3,7 +3,7 @@ import NeuralField from './NeuralField'
 import Icon from './Icon'
 import { profile } from '../data/profile'
 
-const orbit = ['LLMs', 'RAG', 'Agents', 'React', 'Java', 'Node.js']
+const orbit = ['LLMs', 'MCP', 'RAG', 'Agents', 'React', 'Java', 'Node.js']
 
 function RotatingWord({ words }) {
   const [i, setI] = useState(0)
