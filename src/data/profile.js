@@ -14,9 +14,9 @@ export const profile = {
   location: 'Kolkata, India · Remote',
   email: 'ari123acess@gmail.com',
   portrait,
-  rotatingRoles: ['AI agents', 'RAG pipelines', 'LLM-powered products', 'full-stack platforms'],
+  rotatingRoles: ['AI agents', 'MCP servers', 'RAG pipelines', 'LLM-powered products', 'full-stack platforms'],
   intro:
-    'Software Development Engineer at ServiceNow, building Agentic AI, Generative AI and LLM-powered experiences for Strategic Portfolio Management — on top of a strong full-stack foundation in React, Node.js and Java.',
+    'Software Development Engineer at ServiceNow, building Agentic AI, Generative AI, MCP integrations and LLM-powered experiences for Strategic Portfolio Management — on top of a strong full-stack foundation in React, Node.js and Java.',
   stats: [
     { value: '7+', label: 'years shipping software' },
     { value: '2023', label: 'building AI at ServiceNow since' },
@@ -52,6 +52,12 @@ export const expertise = [
     tags: ['LLM apps', 'Retrieval & reranking', 'Evaluation', 'Prompting'],
   },
   {
+    id: 'mcp',
+    title: 'Model Context Protocol (MCP)',
+    text: 'Building MCP servers and clients that give LLMs and agents secure, standardized access to real tools, data and context — exposing tools, resources and prompts so one integration works across every AI client.',
+    tags: ['MCP servers', 'Tool & resource design', 'Auth & permissions', 'Agent integrations'],
+  },
+  {
     id: 'fullstack',
     title: 'Full-Stack Engineering',
     text: 'Production systems end to end — React and Next.js front ends, Node.js and Java services, REST APIs and microservices built with Spring Boot and RxJava.',
@@ -70,7 +76,7 @@ export const agentSteps = [
   { id: 'intent', label: 'Understand intent', detail: 'Clear purpose first: classify the request and decide whether an agent is even the right tool.', log: 'intent → "summarize at-risk projects and draft an update"' },
   { id: 'plan', label: 'Plan', detail: 'Break the goal into steps the system can verify, instead of one giant prompt.', log: 'plan → [fetch_portfolio, score_risk, draft_update]' },
   { id: 'retrieve', label: 'Retrieve & rerank', detail: 'Retrieve more, rerank, and send only the best context. Most RAG problems are retrieval problems.', log: 'retrieve → 48 chunks · rerank → top 6 (0.91 avg)' },
-  { id: 'tools', label: 'Call tools', detail: 'Typed tool calls with permissions and reliable APIs — agents do work, not just generate text.', log: 'tool.fetch_portfolio() ✓ 212ms · tool.score_risk() ✓ 95ms' },
+  { id: 'tools', label: 'Call tools via MCP', detail: 'Typed tool calls over the Model Context Protocol, with permissions and reliable APIs — agents do work, not just generate text.', log: 'mcp › portfolio.fetch() ✓ 212ms · mcp › risk.score() ✓ 95ms' },
   { id: 'validate', label: 'Validate', detail: 'Check outputs against schemas and business rules; recover gracefully when a tool fails.', log: 'validate → schema ✓ · policy ✓ · 0 retries' },
   { id: 'respond', label: 'Respond & learn', detail: 'Ship the answer, then close the loop with monitoring, evaluation and feedback.', log: 'respond ✓ 1.4s · eval.score 0.94 · trace logged' },
 ]
@@ -123,11 +129,11 @@ export const featured = [
 ]
 
 export const projects = [
-  { title: 'Online Disruptor', kind: 'Agency platform', text: 'Web & mobile development studio I ran while freelancing — helping businesses grow with modern tech.', image: onlineDisruptor, live: 'https://onlinedisruptor.com', source: 'https://github.com/emmyari/onlinedisrupto-admin' },
-  { title: 'LikeMinds', kind: 'Community chat app', text: 'Community chat experience shipped to the App Store for interest-based groups.', image: likeminds, live: 'https://apps.apple.com/in/app/likeminds-community-chat/id1526635028', source: 'https://github.com/emmyari/likemind' },
-  { title: 'NellZCart', kind: 'E-commerce', text: 'Full e-commerce storefront with catalog, cart and checkout flows.', image: nellzcart, live: 'http://www.nellzcart.online', source: 'https://github.com/emmyari/nellzcart' },
-  { title: 'TacoClout', kind: 'Brand website', text: 'Marketing site for a food brand with a focus on speed and personality.', image: tacoclout, live: 'https://www.tacoclout.com/', source: 'https://github.com/emmyari/tacoclout' },
-  { title: 'React Apps', kind: 'Open source', text: 'A collection of React apps and experiments built while learning in public.', image: reactApps, live: 'https://github.com/emmyari/', source: 'https://github.com/emmyari/' },
+  { title: 'Online Disruptor', kind: 'Agency platform', text: 'Web & mobile development studio I ran while freelancing — helping businesses grow with modern tech.', image: onlineDisruptor, source: 'https://github.com/arijeet-mukherjee/onlinedisrupto-admin' },
+  { title: 'LikeMinds', kind: 'Community chat app', text: 'Community chat experience shipped to the App Store for interest-based groups.', image: likeminds, source: 'https://github.com/arijeet-mukherjee/likemind' },
+  { title: 'NellZCart', kind: 'E-commerce', text: 'Full e-commerce storefront with catalog, cart and checkout flows.', image: nellzcart, source: 'https://github.com/arijeet-mukherjee/nellzcart' },
+  { title: 'TacoClout', kind: 'Brand website', text: 'Marketing site for a food brand with a focus on speed and personality.', image: tacoclout, source: 'https://github.com/arijeet-mukherjee/tacoclout' },
+  { title: 'React Apps', kind: 'Open source', text: 'A collection of React apps and experiments built while learning in public.', image: reactApps, source: 'https://github.com/arijeet-mukherjee/' },
 ]
 
 export const experience = [
@@ -140,7 +146,7 @@ export const experience = [
 ]
 
 export const stack = [
-  { group: 'AI', items: ['Agentic AI', 'Generative AI', 'LLM applications', 'RAG', 'AI skills', 'Prompt design', 'Evaluation'] },
+  { group: 'AI', items: ['Agentic AI', 'Generative AI', 'MCP', 'LLM applications', 'RAG', 'AI skills', 'Prompt design', 'Evaluation'] },
   { group: 'Frontend', items: ['React', 'Next.js', 'JavaScript', 'HTML & CSS', 'UI frameworks'] },
   { group: 'Backend', items: ['Node.js', 'Java', 'Spring Boot', 'RxJava', 'REST APIs', 'MySQL'] },
   { group: 'Engineering', items: ['System design', 'Automated testing', 'Performance', 'Git & GitHub'] },
