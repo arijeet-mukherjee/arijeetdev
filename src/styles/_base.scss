@@ -1,0 +1,68 @@
+@use 'tokens' as *;
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 16px/1.65 $font-body;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  transition: background-color 0.4s $ease, color 0.4s $ease;
+}
+body::before {
+  // faint engineering grid across the whole page
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000 20%, transparent 75%);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-family: $font-display; line-height: 1.12; letter-spacing: -0.02em; margin: 0; font-weight: 600; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+code, .mono { font-family: $font-mono; }
+::selection { background: var(--c1); color: #fff; }
+:focus-visible { outline: 2px solid var(--c2); outline-offset: 3px; border-radius: 8px; }
+
+.container { width: min(1200px, 100% - 32px); margin-inline: auto; }
+@media (min-width: $md) { .container { width: min(1200px, 100% - 64px); } }
+
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--bg);
+  &:focus { top: 16px; }
+}
+
+.text-gradient {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+// Scroll reveal — only hides content when JS is running, so prerendered HTML is always readable.
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  filter: blur(6px);
+  transition: opacity 0.9s $ease, transform 0.9s $ease, filter 0.9s $ease;
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal].is-visible { opacity: 1; transform: none; filter: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  .js [data-reveal] { opacity: 1; transform: none; filter: none; }
+}

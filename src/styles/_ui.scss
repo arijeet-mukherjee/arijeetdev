@@ -1,0 +1,118 @@
+@use 'tokens' as *;
+
+.btn {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 50px; padding: 0 22px; border-radius: 999px;
+  font-weight: 600; font-size: 15px; white-space: nowrap;
+  transition: transform 0.3s $ease, box-shadow 0.3s $ease, background-color 0.3s;
+  svg { transition: transform 0.3s $ease; }
+  &:hover svg:last-child { transform: translateX(3px); }
+  &:active { transform: scale(0.97); }
+  &--primary {
+    color: #fff;
+    background: var(--grad);
+    background-size: 160% 100%;
+    box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--c1) 70%, transparent);
+    &:hover { background-position: 100% 0; box-shadow: 0 16px 40px -12px color-mix(in srgb, var(--c2) 80%, transparent); transform: translateY(-2px); }
+  }
+  &--ghost {
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    &:hover { background: var(--surface-2); transform: translateY(-2px); }
+  }
+  &--sm { height: 40px; padding: 0 18px; font-size: 14px; }
+  &--lg { height: 58px; padding: 0 28px; font-size: 16px; }
+}
+
+.icon-btn {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: background-color 0.2s, transform 0.3s $ease;
+  &:hover { background: var(--surface-2); transform: rotate(-8deg); }
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 7px 14px 7px 10px; border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  font-size: 13px; font-weight: 500; color: var(--text-2);
+  &__dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ok);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 60%, transparent);
+    animation: ping 2s infinite;
+  }
+}
+@keyframes ping { 70%, 100% { box-shadow: 0 0 0 8px transparent; } }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 500 12px/1 $font-mono; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--c2);
+  &::before { content: ''; width: 24px; height: 1px; background: var(--grad); }
+}
+
+.section { position: relative; padding: 96px 0; }
+@media (min-width: $md) { .section { padding: 140px 0; } }
+
+.section-head {
+  max-width: 760px; margin-bottom: 56px;
+  h2 { margin-top: 18px; font-size: clamp(32px, 5vw, 56px); }
+  &__lead { margin-top: 18px; font-size: 18px; color: var(--muted); max-width: 620px; }
+}
+
+.subhead { font-size: 22px; margin: 96px 0 28px; }
+
+.cards { display: grid; gap: 20px; }
+@media (min-width: $md) {
+  .cards--2 { grid-template-columns: repeat(2, 1fr); }
+  .cards--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: $lg) { .cards--4 { grid-template-columns: repeat(4, 1fr); } }
+
+.card {
+  position: relative;
+  padding: 28px; border-radius: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.3s, transform 0.5s $ease;
+  h3 { font-size: 22px; margin: 22px 0 10px; }
+  > p { color: var(--muted); }
+  &:hover { border-color: var(--border-strong); transform: translateY(-4px); }
+  &--spot::before {
+    content: '';
+    position: absolute; inset: 0; z-index: -1;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--c1) 16%, transparent), transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+  }
+  &--spot:hover::before { opacity: 1; }
+}
+
+.tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px;
+  li {
+    padding: 5px 11px; border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font: 500 12px/1.4 $font-mono; color: var(--text-2);
+  }
+  &--lg li { font-size: 13px; padding: 7px 13px; }
+}
+
+.checks {
+  display: grid; gap: 10px; margin-top: 20px;
+  li { display: flex; gap: 10px; color: var(--text-2); font-size: 15px; }
+  svg { flex: none; margin-top: 4px; color: var(--c2); }
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; background: var(--border-strong); }
+.dot--r { background: #ff5f57; } .dot--y { background: #febc2e; } .dot--g { background: #28c840; }
+.dot--ok { background: var(--ok); box-shadow: 0 0 12px var(--ok); }
