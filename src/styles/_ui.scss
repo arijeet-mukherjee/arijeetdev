@@ -75,6 +75,15 @@
   .cards--4 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: $lg) { .cards--4 { grid-template-columns: repeat(4, 1fr); } }
+// Five expertise cards: two wide on top, three below; at two columns the odd last card spans the row.
+@media (min-width: $md) and (max-width: $lg - 1) { .cards--2 > :last-child:nth-child(odd) { grid-column: 1 / -1; } }
+@media (min-width: $lg) {
+  .cards--2:has(> :nth-child(5)) {
+    grid-template-columns: repeat(6, 1fr);
+    > * { grid-column: span 2; }
+    > :nth-child(-n + 2) { grid-column: span 3; }
+  }
+}
 
 .card {
   position: relative;
