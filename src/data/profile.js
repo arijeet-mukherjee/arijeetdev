@@ -135,7 +135,7 @@ export const projects = [
   { title: 'NellZCart', kind: 'E-commerce', text: 'Full e-commerce storefront with catalog, cart and checkout flows.', image: nellzcart, source: 'https://github.com/arijeet-mukherjee/nellzcart' },
   { title: 'TacoClout', kind: 'Brand website', text: 'Marketing site for a food brand with a focus on speed and personality.', image: tacoclout, source: 'https://github.com/arijeet-mukherjee/tacoclout' },
   { title: 'React Apps', kind: 'Open source', text: 'A collection of React apps and experiments built while learning in public.', image: reactApps, source: 'https://github.com/arijeet-mukherjee/' },
-  { title: 'AI ML Learning POrtal', kind: 'Open source', text: 'All of machine learning, on one portal. Learn experiment and do hands on.', image: mlLearningPortal, source: 'https://ai-ml-learning-portal-pearl.vercel.app/' },
+  { title: 'AI ML Learning Portal', kind: 'Open source', text: 'All of machine learning, on one portal. Learn experiment and do hands on.', image: mlLearningPortal, live: 'https://ai-ml-learning-portal-pearl.vercel.app/', source: 'https://github.com/arijeet-mukherjee/' },
 ]
 
 export const experience = [
